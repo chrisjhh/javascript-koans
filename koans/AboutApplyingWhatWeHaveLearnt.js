@@ -117,9 +117,29 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the difference between the sum of the squares and the square of the sums", function () {
 
   });
+  */
 
   it("should find the 10001st prime", function () {
-
+    var primes = [2];
+    var test = 2;
+    var n = 10001;
+    while (primes.length < n) {
+      ++test;
+      // Test if current number is divisible by any of the existing primes
+      var prime = true;
+      for(var i=0; i<primes.length; ++i) {
+        if (test % primes[i] === 0) {
+          // Not a prime
+          prime = false;
+          break;
+        }
+      }
+      if (prime) {}
+        // Found a new prime
+        primes.push(test);
+      }
+    }
+    expect(primes[n-1]).toBe(104743);
   });
-  */
+  
 });
