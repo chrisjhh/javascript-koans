@@ -158,12 +158,27 @@ describe("About Applying What We Have Learnt", function() {
     }
     expect(largestPalindrome).toBe(906609);
   });
-   /*
+   
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-
+    var test = 0;
+    var answer = undefined;
+    while (answer === undefined) {
+      ++test;
+      for (var i=2; i<=20; ++i) {
+        if (test % i !== 0) {
+          // This isn't the answer
+          break;
+        }
+        if (i === 20) {
+          // Found it
+          answer = test;
+        }
+      }
+    }
+    expect(answer).toBe(232792560);
 
   });
-
+  /*
   it("should find the difference between the sum of the squares and the square of the sums", function () {
 
   });
