@@ -100,15 +100,65 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+  /* */
   it("should find the largest prime factor of a composite number", function () {
-
+    // 73 x 89 = 6497
+    var num = 6497;
+    var primes = [2];
+    var test = 2;
+    var highestPrimeFactor = function(number) {
+      var maxFactor = 1;
+      while (test < number) {
+        ++test;
+        // Test if current number is divisible by any of the existing primes
+        var prime = true;
+        for(var i=0; i<primes.length; ++i) {
+          if (test % primes[i] === 0) {
+            // Not a prime
+            prime = false;
+            break;
+          }
+        }
+        if (prime) {
+          // Found a new prime
+          primes.push(test);
+          // Check if it is also a factor
+          if (number % test === 0) {
+            maxFactor = test;
+          }
+        }
+      }
+      return maxFactor;
+    };
+    expect(highestPrimeFactor(num)).toBe(89);
   });
-
+  
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-
+    // Three digit numbers = 100 .. 999
+    var largestPalindrome = 0;
+    var isPalindrome = function(number) {
+      // Convert to string
+      var string = String(number);
+      for (var i = 0; i <= string.length/2; ++i) {
+        if (string[i] !== string[string.length -i - 1]) {
+          return false;
+        }
+      }
+      return true;
+    };
+    for (var n1 = 100; n1 <= 999; ++n1) {
+      for (var n2 = 100; n2 <= 999; ++n2) {
+        var product = n1 * n2;
+        if (isPalindrome(product)) {
+          if (product > largestPalindrome) {
+            largestPalindrome = product;
+          }
+        }
+      }
+    }
+    expect(largestPalindrome).toBe(906609);
   });
-
+   /*
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
 
 
@@ -134,7 +184,7 @@ describe("About Applying What We Have Learnt", function() {
           break;
         }
       }
-      if (prime) {}
+      if (prime) {
         // Found a new prime
         primes.push(test);
       }
