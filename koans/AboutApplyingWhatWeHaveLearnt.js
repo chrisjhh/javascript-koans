@@ -178,11 +178,30 @@ describe("About Applying What We Have Learnt", function() {
     expect(answer).toBe(232792560);
 
   });
-  /*
+  
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-
+    var sumOfSquares = function(array) {
+      var total = 0;
+      for (var i=0; i<array.length;++i) {
+        total += array[i]*array[i];
+      }
+      return total;
+    };
+    var squareOfSums = function(array) {
+      var total = 0;
+      for (var i=0; i<array.length;++i) {
+        total += array[i];
+      }
+      return total * total;
+    };
+    var diffSumOfSquaresAndSquareOfSums = function(array) {
+      return squareOfSums(array) - sumOfSquares(array);
+    };
+    expect(sumOfSquares([2,3,5])).toBe(38);  // 4 + 9 + 25 = 38
+    expect(squareOfSums([2,3,5])).toBe(100);  // (2 + 3 + 5)^2 =10^2=100
+    expect(diffSumOfSquaresAndSquareOfSums([2,3,5])).toBe(62); // 100 - 38 = 62
   });
-  */
+  
 
   it("should find the 10001st prime", function () {
     var primes = [2];
