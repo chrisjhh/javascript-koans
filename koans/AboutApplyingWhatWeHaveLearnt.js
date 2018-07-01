@@ -160,10 +160,9 @@ describe("About Applying What We Have Learnt", function() {
   });
    
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-    var test = 0;
+    var test = 19*20; // Must be divisible by 19 and 20
     var answer = undefined;
     while (answer === undefined) {
-      ++test;
       for (var i=2; i<=20; ++i) {
         if (test % i !== 0) {
           // This isn't the answer
@@ -174,6 +173,7 @@ describe("About Applying What We Have Learnt", function() {
           answer = test;
         }
       }
+      test += 20; // Must be divisible by 20
     }
     expect(answer).toBe(232792560);
 
